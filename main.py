@@ -13,6 +13,11 @@ mow()
 
 #we can run a python program by calling python main.py
 
+#update a package to its latest version using:
+#-pip install -U packageName
+#-pip unistall packageName
+#-pip show packageName gives us info about a package
+
 #data types
 #float
 #int
@@ -277,6 +282,9 @@ for computer in computers:
 #Theres a special method called __init__ which is a constructor we use to initialise variables in a class
 #classes can inherit other classes
 
+#operator overloading:
+#a way to establis some kind of comparison btween onjects created from ths same class
+
 
 class Animal:
 
@@ -290,12 +298,17 @@ class Dog(Animal):
     self.name = name
     self.age = age
 
+  def __gt__(self, other):
+    return True if self.age > other.age else False
+
   def bark(self):
     print("woof!!")
 
 
 #create an instance of a class
 roger = Dog("roger", 12)
+captain = Dog("captain", 15)
+print(roger > captain)
 print(type(roger))
 
 print(roger.age)
@@ -415,7 +428,43 @@ except ZeroDivisionError:
   print("cannot divide by zero")
 #except <specify second error type in here>
 #else: when there is no error
+#finally: everything in the finally block is run regardess of whether there was an error or not
 finally:
   result = 1
 
 print(result)
+
+#we can also raise an exception intentionally by using the raise key word
+#raise Exception("An Error occured!!")
+
+#we can accept the exception a follows
+try:
+  raise Exception("An Error occured!!")
+except Exception as error:
+  print(error)
+
+
+class DogNotFoundException(Exception):
+  pass
+
+
+try:
+  raise DogNotFoundException()
+except DogNotFoundException:
+  print("dog exception")
+
+#list compression
+#List compression is a way to create lists in a very concise way
+#eg we can compose an elements list elements compressed to the power of two
+#list compressions are mostly preferred over loops and are more useful when an operation can be written on a single line
+print("list compression")
+nums = [1, 2, 3, 4, 5, 6, 7]
+numsquare = [n**2 for n in nums]
+print(numsquare)
+
+#the above code would be the same as
+sq = []
+for num in nums:
+  sq.append(num**2)
+
+print(sq)
