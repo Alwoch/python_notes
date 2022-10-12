@@ -6,6 +6,8 @@ from cow import mow
 #Or
 from lib.person import scream
 #then we simply call bark without using cow
+from functools import reduce
+
 scream()
 mow()
 
@@ -344,3 +346,76 @@ even_numbers = filter(isEven, numbers)
 print(list(even_numbers))
 
 #Reduce
+#we have to import reduce from functools
+expenses = [("dinner", 80), ("bills", 50)]
+
+total_expenses = reduce(lambda a, b: a[1] + b[1], expenses)
+print(total_expenses)
+
+
+#Recursion
+#A recursive function in python is one that calls itself
+def factorial(n):
+  if n == 1: return 1
+  return n * factorial(n - 1)
+
+
+print(factorial(3))
+
+#Decorators
+#decorators are used to alter how a function works. we use the @ followed by the decorator name
+
+#use cases
+#- logging
+#- caching
+#- verifying permissions
+#- when we need to run the same code on mulltiple functions
+
+
+def logtime(func):
+
+  def wrapper():
+    print("before")
+    val = func()
+    print("after")
+    return val
+
+  return wrapper
+
+
+@logtime
+def hello():
+  print("Helllow.....!")
+
+
+hello()
+
+#DocStrings
+#help us explain what our code is about. they basically supplement comments
+"""This is a docString"""
+
+#we can get info on functions we write with docStrings using the help() function
+
+
+#Annotations
+#Python is dynamically typed so we dont normally specify types, however, annotations do help us achieve something like that.
+#the followiing function receives an int and returns an int
+def increment(n: int) -> int:
+  return n + 1
+
+
+print(increment(7))
+
+#Exception handling
+#for exception handling in python, we wrap lines of code in a try block and then python will alert us on which error occured using an except block
+
+try:
+  result = 2 / 0
+except ZeroDivisionError:
+  print("cannot divide by zero")
+#except <specify second error type in here>
+#else: when there is no error
+finally:
+  result = 1
+
+print(result)
