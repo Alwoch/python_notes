@@ -1,0 +1,2 @@
+def scream():
+  print("wulullululu....!")
