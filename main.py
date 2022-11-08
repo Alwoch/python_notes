@@ -468,3 +468,103 @@ for num in nums:
   sq.append(num**2)
 
 print(sq)
+
+#intermediate python
+mylist=["ok"]
+#insert at a specific index
+mylist.insert(0,"no")
+print(mylist)
+#empty a list
+mylist.clear()
+print(mylist)
+
+newlist=[0]*5
+print(newlist)
+
+fakelist=[1,2,3,4,5,7,8]
+slicedlist=fakelist[2:5]
+steplist=fakelist[::2] #step index returns every second item
+print(steplist)
+print(slicedlist)
+
+#copy elements of a list
+list_org=["banana","cherry","appple"]
+#list_copy=list(list_org)
+#list_copy=list_org[:]
+list_copy=list_org.copy()
+
+#Tuples
+#collection datatype that is ordered and immutable
+#cannot be changed and modified after its creation
+#a tuple is usef for objects that belong together
+#brackets can be optional
+my_tuple=("Max",28,"Boston")
+print(my_tuple)
+
+#iterate over a tuple using a for in loop
+#check if an element exists in a tuple
+val="yes" if "Max" in my_tuple else "no"
+print(val)
+#unpack elements of a tuple
+name,age,city=my_tuple
+print(city)
+
+number_tuple=(0,1,2,3,4)
+i1,*i2,i3=number_tuple
+print(i2)
+
+#dictionaries
+#del mydict["key"]
+#pop()
+
+#merge two dictionaries
+dict1={"name":"sophia","age":27,"email":"sally@gmail.com"}
+dict2=dict(name="Mary",age=28,city="Boston")
+dict1.update(dict2)
+print(dict1)
+
+#we can use other immuable types like integers and tuples as keys in a dictionary. lists cannot be used
+
+
+#sets
+myset=set()
+
+#add to set
+myset.add(1)
+#myset.remove(1)
+#myset.discard(1)
+#myset.pop()
+
+#iterate using for in loop
+#check if an item is in a set using a for in loop
+
+#union and intersection
+#union combine elements from two sets without duplication
+odds={1,3,5,7,9}
+even={0,2,4,6,8}
+primes={2,3,5,7}
+u=odds.union(even)
+print(u)
+
+#intersections
+i=odds.intersection(primes)
+print(i)
+
+#difference
+diff=odds.difference(primes)
+
+#symmetric difference
+symdiff=odds.symmetric_difference(primes)
+print(symdiff)
+
+merge=odds.update(primes)
+print(merge)
+print(diff)
+
+#other methods
+#intersection_update
+#difference_update
+#symmetric_difference_update
+
+#frozenset is an immutablle version of a set
+a=frozenset([1,2,3,4,5,6])
