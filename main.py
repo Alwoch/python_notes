@@ -627,18 +627,55 @@ fstring = f"The variables are {variable*2} and {variable2}"
 
 from collections import Counter
 #The counter is a container that stores the elements as dictionary keys and their count as dictionary values
+parent=["dad","mum","dad","mum","dad","mum","dad","mum"]
+parent_counter=Counter(parent)
+print(dict(parent_counter))
+
 a = "aaaaabbbbddhskhfg"
 my_counter = Counter(a)
 #print(my_counter)
 #print(my_counter.items())
 #print(my_counter.keys())
 #print(my_counter.values())
-print(my_counter.most_common(2))  #prints the commonest occurences
-print(
-  my_counter.most_common(1)[0][0])  #prints the commonest element which is a
-print(list(
-  my_counter.elements()))  #gives us an iterable that we can convert to a list
+#print(my_counter.most_common(2))  #prints the commonest occurences
+#print(
+  #my_counter.most_common(1)[0][0])  #prints the commonest element which is a
+#print(list(
+  #my_counter.elements()))  #gives us an iterable that we can convert to a list
 
 #namedtuple
 #The named tuple is an easy to create light weight object type similar to a struct
-from collections import namedtuples
+from collections import namedtuple
+Point=namedtuple("Point","x,y")
+pt=Point(1,5)
+#print(pt.x,pt.y)
+
+from collections import OrderedDict
+#ordered dictionaries are like norma dictionaries but they remember the order in which items were inserted
+#The new python rememberes orders in normal dicts
+ordered_dict=OrderedDict()
+ordered_dict["x"]=5
+ordered_dict["a"]=7
+print(ordered_dict)
+
+from collections import defaultdict
+#will have a default value id the key has not been set yet. they help prevent value errors incase the key doesnt exist and return the default value of the type that we specify
+default_dict=defaultdict(int)
+default_dict["a"]=1
+default_dict["b"]=2
+print(default_dict["c"])
+
+from collections import deque
+#a deque is a double ended queue and is used to add or remove elements from both ends and both are implemented in a way that will be very efficient
+d=deque()
+d.append(1)
+d.append(2)
+d.append(3)
+
+d.appendleft(5)
+d.popleft()
+#d.clear() will remove all elements
+d.extend([4,5,6,7,7])
+#d.extendleft()
+d.rotate(2) #the parameter is the number of places it will rotate
+print(d)
