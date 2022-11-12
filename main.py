@@ -656,14 +656,14 @@ from collections import OrderedDict
 ordered_dict=OrderedDict()
 ordered_dict["x"]=5
 ordered_dict["a"]=7
-print(ordered_dict)
+#print(ordered_dict)
 
 from collections import defaultdict
 #will have a default value id the key has not been set yet. they help prevent value errors incase the key doesnt exist and return the default value of the type that we specify
 default_dict=defaultdict(int)
 default_dict["a"]=1
 default_dict["b"]=2
-print(default_dict["c"])
+#print(default_dict["c"])
 
 from collections import deque
 #a deque is a double ended queue and is used to add or remove elements from both ends and both are implemented in a way that will be very efficient
@@ -678,4 +678,32 @@ d.popleft()
 d.extend([4,5,6,7,7])
 #d.extendleft()
 d.rotate(2) #the parameter is the number of places it will rotate
-print(d)
+#print(d)
+
+#itertools
+#The intertools module is a module for handling iterators
+#iterators are data types that can be used in a forloop eg list.
+
+from itertools import product
+list1=[1,2,3]
+list2=[4,5,6]
+prod=product(list1,list2)
+#we can also add an optional repeat parameter prod=product(list1,list2,repeat=2)
+#print(list(prod))
+
+#permutations
+#permutations will return all possible orderings of an input 
+from itertools import permutations
+perm_list=[1,2,3,4,5]
+perm=permutations(perm_list,2)
+#print(list(perm))
+
+#combinations
+#combinations will make all possible combinations with a specified length
+from itertools import combinations,combinations_with_replacement
+comb=combinations(perm_list,2)
+comb_wr=combinations_with_replacement(perm_list,2)
+#print(list(comb
+
+#accumulate
+#makes an accumulator and returns accumulated sums
