@@ -707,3 +707,51 @@ comb_wr=combinations_with_replacement(perm_list,2)
 
 #accumulate
 #makes an accumulator and returns accumulated sums
+
+from itertools import accumulate
+import operator
+ac=[1,2,3,4,5]
+acc=accumulate(ac,func=operator.mul)
+#print(list(acc))
+
+#The groupby function makes an iterator that returns keys and groups from an iterable
+
+from itertools import groupby
+gp=[1,2,3,4,5,6]
+group_object=groupby(gp,key=lambda x:x<3)
+group_dict=dict((x,list(y)) for x,y in group_object)
+#print(group_dict)
+
+persons=[
+  {"name":"Tim","age":25},
+  {"name":"Dan","age":27},
+  {"name":"Claire","age":25},
+  {"name":"Loren","age":27},
+  {"name":"Yawe","age":26},
+]
+
+persons_object=groupby(persons,key=lambda x:x["age"])
+persons_dict=dict((x,list(y)) for x,y in persons_object)
+#print(persons_dict)
+
+#other itertools include count, cycle and repeat
+#the sorted method sorts iterables in ascending order
+points2D=[(1,2),(15,7),(3,6),(3,2)]
+sorted_points=sorted(points2D,key=lambda x:x[0]+x[1])
+#print(sorted_points)
+
+#creating custom error classes
+class ValueTooSmallError(Exception):
+  def __init__(self,message,value):
+    self.message=message
+    self.value=value
+
+def test_value(x):
+  if x<100:
+    raise ValueTooSmallError('The value is too small',x)
+  print(x)
+
+try:
+  test_value(6)
+except ValueTooSmallError as e:
+  print(e)
